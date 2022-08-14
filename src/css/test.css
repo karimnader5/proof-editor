@@ -7,6 +7,16 @@
     margin: 0px;
 }
 
+.header {
+    padding: 0px;
+    margin: 0px 0px 5px 0px;
+}
+
+.paragraph {
+    padding: 0px;
+    margin: 0px 0px 5px 0px;
+}
+
 .sub {
     display: inline-block;
     margin: 0px;

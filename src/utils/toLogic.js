@@ -1,12 +1,5 @@
 import React from 'react';
 
-/* const newInput = input
-    .replace(/<->/, '↔')
-    .replace(/->/g, '→')
-    .replace(/~/g, '¬')
-    .replace(/&/g, '∧')
-    .replace(/\?/g, '∨'); */
-
 const createSubproof = (line, index) => {
     line = line
         .replace(/<->/, '↔')
@@ -45,7 +38,6 @@ const createSubproof = (line, index) => {
 
 const createStructure = (jsx, line, index) => {
     let citation = line.match(/__(.*)/);
-    console.log(citation);
     return (
         <div key={index} className={`proof line line-${index + 1}`}>
             {jsx}
