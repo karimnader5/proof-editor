@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/proof.css';
+import './css/test.scss';
 
 const Output = ({ input }) => {
     const newInput = input
@@ -21,36 +21,45 @@ const Output = ({ input }) => {
             }
             for (let j = i; j > 0; j--) {
                 if (j === i) {
-                    myReturn = <div className='sub'>{line}</div>;
+                    myReturn = <p className='sub'>{line}</p>;
                 } else if (j > 0) {
                     myReturn = <div className='sub'>{myReturn}</div>;
                 }
             }
             return (
-                <p key={index} className='proof statement'>
+                <div key={index} className='proof statement'>
                     {myReturn}
-                </p>
+                </div>
             );
         } else {
             return (
-                <p key={index} className='proof statement'>
-                    {line}
-                </p>
+                <div key={index} className='proof statement'>
+                    <p className='proof main'>{line}</p>
+                </div>
             );
         }
     };
 
-    const createStructure = (line, index) => {
-        console.log(line);
-        /* let citation = line.match(/__(.*)/); */
-        return <div className={`proof line line-${index + 1}`}>{line}</div>;
+    const createStructure = (jsx, line, index) => {
+        let citation = line.match(/__(.*)/);
+        console.log(citation);
+        return (
+            <div key={index} className={`proof line line-${index + 1}`}>
+                {jsx}
+                <div className='rule'>{citation ? citation[1] : ''}</div>
+            </div>
+        );
     };
 
     return (
         <div id='output'>
             {test
                 ? test.map((line, index) =>
-                      createStructure(createSubproof(line, index), index)
+                      createStructure(
+                          createSubproof(line.replace(/__(.*)/, ''), index),
+                          line,
+                          index
+                      )
                   )
                 : ''}
             {currentLine ? currentLine : ''}

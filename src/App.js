@@ -1,6 +1,7 @@
 import React from 'react';
 import Input from './Input.js';
 import Output from './Output.js';
+import Instructions from './Instructions.js';
 import { useState } from 'react';
 
 export default function App() {
@@ -10,6 +11,7 @@ export default function App() {
     }
     return (
         <div id='main'>
+            <Instructions />
             <Input input={input} handleChange={handleChange} />
             <Output input={input} />
         </div>
