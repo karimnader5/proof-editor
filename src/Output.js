@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/test.scss';
+import './css/test.css';
 
 const Output = ({ input }) => {
     const newInput = input
