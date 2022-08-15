@@ -7,9 +7,10 @@ const Output = ({ input }) => {
     const inputArray = input.match(/(.*)\n/g);
     const currentLine = <p>{input.match(/\n?(.*)$/g)}</p>;
 
+    // {inputArray ? preParse(inputArray) : ''} //
+
     return (
-        <div id='output'>
-            {inputArray ? preParse(inputArray) : ''}
+        <div id='output' className='col-6'>
             {inputArray
                 ? inputArray.map((line, index) => parse(line, index))
                 : ''}

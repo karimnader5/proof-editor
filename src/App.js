@@ -11,7 +11,7 @@ export default function App() {
         setInput(event.target.value);
     }
     return (
-        <div id='main'>
+        <div id='main' className='row'>
             <Instructions
                 showInstructions={showInstructions}
                 setShowInstructions={setShowInstructions}

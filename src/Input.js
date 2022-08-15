@@ -2,9 +2,8 @@ import React from 'react';
 
 const Input = ({ input, handleChange }) => {
     return (
-        <div id='input'>
+        <div id='input' className='col-6'>
             <textarea
-                cols='50'
                 rows='20'
                 value={input}
                 onChange={handleChange}></textarea>
