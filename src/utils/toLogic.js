@@ -8,6 +8,7 @@ const createSubproof = (line, index) => {
         .replace(/&/g, '∧')
         .replace(/\?/g, '∨');
     line = line.replace(/`(\s*)/, '').replace(/__(.*)/, '');
+
     if (line[0] === '>') {
         let i = 0;
         let myReturn = '';
@@ -17,7 +18,13 @@ const createSubproof = (line, index) => {
         }
         for (let j = i; j > 0; j--) {
             if (j === i) {
-                myReturn = <p className='sub'>{line}</p>;
+                let proofEnd = line.match(/--end/);
+                console.log(line);
+                myReturn = (
+                    <p className={`sub ${proofEnd ? 'proof-end' : null}`}>
+                        {line.replace(/--end/, '')}
+                    </p>
+                );
             } else if (j > 0) {
                 myReturn = <div className='sub'>{myReturn}</div>;
             }
@@ -46,4 +53,15 @@ const createStructure = (jsx, line, index) => {
     );
 };
 
-export { createSubproof, createStructure };
+const createMultiStructure = (jsx, line, index) => {
+    let citation = line.match(/__(.*)/);
+    return (
+        <div key={index} className={`proof line line-${index + 1}`}>
+            <div className='line-number'>{index + 1}.</div>
+            {jsx}
+            <div className='rule'>{citation ? citation[1] : ''}</div>
+        </div>
+    );
+};
+
+export { createSubproof, createStructure, createMultiStructure };

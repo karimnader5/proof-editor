@@ -4,6 +4,7 @@
 #output {
     border: 1px solid black;
     border-radius: 0.5em;
+    overflow: auto;
 }
 
 #input textarea {
@@ -16,21 +17,25 @@
 #buttons {
     margin-bottom: 1em;
     display: flex;
-    justify-content: center;
+    gap: 40px;
+    justify-content: flex-end;
 }
 
 #instructions {
     position: absolute;
     padding: 1em;
     border: 1px solid black;
-    width: 95%;
+    width: 96%;
     border-radius: 0.5em;
+    overflow: auto;
 }
 
 #closeInstructions {
     border-radius: 50%;
     width: 40px;
     height: 40px;
+    font-size: 18px;
+    display: inline-block;
 }
 
 #showInstructions {
@@ -38,13 +43,24 @@
     width: 40px;
     height: 40px;
     font-size: 18px;
+    display: inline-block;
+}
+
+#printPDF {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
 }
 
 #hide span,
-#show span {
+#show span,
+#pdf span {
     padding-left: 0.5em;
     height: 40px;
     font-size: 18px;
+    display: inline-block;
+    width: 200px;
 }
 
 #instructions h4,
@@ -73,6 +89,26 @@
     width: 50%;
 }
 
+#logic-shortcuts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+#logic-shortcuts h5 {
+    width: 100%;
+}
+
+#logic-shortcuts table {
+    width: 48%;
+}
+
+table .sub {
+    padding-left: 20px !important;
+}
+
 /* END */
 
 .proof {
@@ -93,20 +129,32 @@
 .sub {
     display: inline-block;
     margin: 0px;
+    margin-left: 5px;
     padding-left: 20px;
     border-left: solid 1px black;
 }
 
 .line {
     display: flex;
-    justify-content: space-between;
-    width: 50%;
+    justify-content: flex-start;
+}
+
+.line-number {
+    padding-right: 10px;
+    border-bottom: none !important;
+}
+
+.proof-end {
+    border-bottom: solid 1px black;
 }
 
 .statement {
     display: inline;
+
+    flex-grow: 2;
 }
 
 .rule {
     align-self: flex-end;
+    padding-right: 10px;
 }

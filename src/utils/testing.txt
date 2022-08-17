@@ -1,0 +1,14 @@
+# This is a header
+#### This is a subheader
+- This is a paragraph
+```
+This is a multiline proof __ With citations
+> I can start a subproof here __ A1
+> Here's a second line __ A2
+>> I can start a subsubproof __ A3
+>> And add a final line --end __ A4
+> Conclude the first subproof --end __ A5
+And conclude the proof
+```
+
+
