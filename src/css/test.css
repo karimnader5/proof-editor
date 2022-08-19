@@ -1,10 +1,50 @@
+@media print {
+    #buttons,
+    #instructions,
+    h4 {
+        display: none;
+    }
+
+    #input {
+        display: none;
+    }
+
+    #output,
+    #placeholder {
+        border: 0px solid transparent !important;
+        margin: 1in;
+        width: 150%;
+    }
+}
+
+body {
+    font-family: 'EB Garamond' !important;
+}
+
 #main {
     margin: 2%;
 }
-#output {
-    border: 1px solid black;
+
+html {
+    overflow-y: scroll;
+}
+
+#output,
+#placeholder {
+    border: 1px solid grey;
+    padding: 10px;
     border-radius: 0.5em;
-    overflow: auto;
+    width: 100%;
+    min-height: 400px;
+}
+
+textarea {
+    padding: 10px;
+    min-height: 400px;
+}
+
+#placeholder {
+    color: grey;
 }
 
 #input textarea {
@@ -18,16 +58,20 @@
     margin-bottom: 1em;
     display: flex;
     gap: 40px;
-    justify-content: flex-end;
+    justify-content: flex-start;
+}
+
+#header {
+    flex-grow: 5;
 }
 
 #instructions {
+    margin-top: 50px;
     position: absolute;
     padding: 1em;
     border: 1px solid black;
     width: 96%;
     border-radius: 0.5em;
-    overflow: auto;
 }
 
 #closeInstructions {
@@ -60,7 +104,6 @@
     height: 40px;
     font-size: 18px;
     display: inline-block;
-    width: 200px;
 }
 
 #instructions h4,
@@ -126,6 +169,11 @@ table .sub {
     margin: 0px 0px 5px 0px;
 }
 
+#output > p {
+    padding: 0px;
+    margin: 0px 0px 5px 0px;
+}
+
 .sub {
     display: inline-block;
     margin: 0px;
@@ -156,5 +204,39 @@ table .sub {
 
 .rule {
     align-self: flex-end;
-    padding-right: 10px;
+    padding-right: 20px;
+}
+
+/* GRO TEXT AREA */
+
+.grow-wrap {
+    /* easy way to plop the elements on top of each other and have them both sized based on the tallest one's height */
+    display: grid;
+}
+.grow-wrap::after {
+    /* Note the weird space! Needed to preventy jumpy behavior */
+    content: attr(data-replicated-value) ' ';
+
+    /* This is how textarea text behaves */
+    white-space: pre-wrap;
+
+    /* Hidden from view, clicks, and screen readers */
+    visibility: hidden;
+}
+.grow-wrap > textarea {
+    /* You could leave this, but after a user resizes, then it ruins the auto sizing */
+    resize: none;
+
+    /* Firefox shows scrollbar on growth, you can hide like this. */
+    overflow: hidden;
+}
+.grow-wrap > textarea,
+.grow-wrap::after {
+    /* Identical styling required!! */
+    border: 1px solid black;
+    padding: 0.5rem;
+    font: inherit;
+
+    /* Place on top of each other */
+    grid-area: 1 / 1 / 2 / 2;
 }
