@@ -1,9 +1,35 @@
 import React from 'react';
 
-const Buttons = ({ showInstructions, setShowInstructions, handlePrint }) => {
+const Buttons = ({
+    showInstructions,
+    setShowInstructions,
+    handlePrint,
+    darkMode,
+    setDarkMode,
+}) => {
     return (
         <div id='buttons'>
             <h1 id='header'>Symbolic Logic Proof Editor</h1>
+            {darkMode ? (
+                <div id='lightMode'>
+                    <button
+                        id='lightMode'
+                        onClick={() => setDarkMode(false)}
+                        type='button'
+                        className='btn btn-light'>
+                        ☼
+                    </button>
+                </div>
+            ) : (
+                <div id='darkMode'>
+                    <button
+                        className='btn btn-dark'
+                        id='darkMode'
+                        onClick={() => setDarkMode(true)}>
+                        ☾
+                    </button>
+                </div>
+            )}
             {showInstructions ? (
                 <div id='hide'>
                     <button
@@ -26,6 +52,7 @@ const Buttons = ({ showInstructions, setShowInstructions, handlePrint }) => {
                     <span>Show Instructions</span>
                 </div>
             )}
+
             <div id='pdf'>
                 <button
                     id='printPDF'

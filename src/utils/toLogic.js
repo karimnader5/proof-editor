@@ -6,7 +6,9 @@ const createSubproof = (line, index) => {
         .replace(/->/g, '→')
         .replace(/~/g, '¬')
         .replace(/&/g, '∧')
-        .replace(/\?/g, '∨');
+        .replace(/\?/g, '∨')
+        .replace(/\/a\//, '∀')
+        .replace(/\/e\//, '∃');
     line = line.replace(/`(\s*)/, '').replace(/__(.*)/, '');
 
     if (line[0] === '>') {
@@ -59,7 +61,18 @@ const createMultiStructure = (jsx, line, index) => {
         <div key={index} className={`proof line line-${index + 1}`}>
             <div className='line-number'>{index + 1}.</div>
             {jsx}
-            <div className='rule'>{citation ? citation[1] : ''}</div>
+            <div className='rule'>
+                {citation
+                    ? citation[1]
+                          .replace(/<->/, '↔')
+                          .replace(/->/g, '→')
+                          .replace(/~/g, '¬')
+                          .replace(/&/g, '∧')
+                          .replace(/\?/g, '∨')
+                          .replace(/\/a\//, '∀')
+                          .replace(/\/e\//, '∃')
+                    : ''}
+            </div>
         </div>
     );
 };

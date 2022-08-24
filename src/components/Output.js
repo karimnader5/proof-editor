@@ -1,7 +1,6 @@
 import React from 'react';
 import { parse } from '../utils/parse.js';
 import { preParse } from '../utils/preParse.js';
-import '../css/test.css';
 
 const Output = React.forwardRef(({ input }, ref) => {
     const inputArray = input.match(/(.*)\n/g);
@@ -86,11 +85,11 @@ const Output = React.forwardRef(({ input }, ref) => {
                     </div>
                 );
             } else {
-                return currentLine;
+                return <div id='output'>{currentLine}</div>;
             }
         } else {
             if (currentLine) {
-                return currentLine;
+                return <div id='output'>{currentLine}</div>;
             } else {
                 return placeholder;
             }

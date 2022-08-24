@@ -17,14 +17,15 @@
     }
 }
 
-
-
+html {
+    background-color: black;
+}
 body {
     font-family: 'EB Garamond' !important;
 }
 
 #main {
-    padding: 2%;
+    margin: 2%;
 }
 
 html {
@@ -41,11 +42,8 @@ html {
 }
 
 textarea {
-    padding: 10px !important;
+    padding: 10px;
     min-height: 400px;
-    border: none;
-    outline: 1px solid grey;
-    line-height: 2em;
 }
 
 #placeholder {
@@ -189,7 +187,7 @@ table .sub {
     margin: 0px;
     margin-left: 5px;
     padding-left: 20px;
-    border-left: solid 1px grey;
+    border-left: solid 1px black;
 }
 
 .line {
@@ -217,15 +215,6 @@ table .sub {
     padding-right: 20px;
 }
 
-/*DARK MODE*/
-
-.dark {
-    background-color: black;
-    color: #D0D0D0	;
-}
-
-/*END*/
-
 /* GRO TEXT AREA */
 
 .grow-wrap {
@@ -252,11 +241,10 @@ table .sub {
 .grow-wrap > textarea,
 .grow-wrap::after {
     /* Identical styling required!! */
+    border: 1px solid black;
     padding: 0.5rem;
     font: inherit;
 
     /* Place on top of each other */
     grid-area: 1 / 1 / 2 / 2;
 }
-
-
