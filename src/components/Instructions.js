@@ -136,24 +136,24 @@ const Instructions = () => {
 
                     <tbody>
                         <tr>
-                            <td>~P</td>
-                            <td>¬P</td>
+                            <td>/a/</td>
+                            <td>∀</td>
                         </tr>
                         <tr>
-                            <td>P&Q</td>
-                            <td>P∧Q</td>
+                            <td>/e/</td>
+                            <td>∃</td>
                         </tr>
                         <tr>
-                            <td>P?Q</td>
-                            <td>P∨Q</td>
+                            <td>&#62; Line</td>
+                            <td>Subproof indentation (see below)</td>
                         </tr>
                         <tr>
-                            <td>P-&#62;Q</td>
-                            <td>P→Q</td>
+                            <td>__ Rule</td>
+                            <td>Rule citation (see below)</td>
                         </tr>
                         <tr>
-                            <td>P&#60;-&#62;Q</td>
-                            <td>P↔Q</td>
+                            <td>--end</td>
+                            <td>Subproof ending border (see below)</td>
                         </tr>
                     </tbody>
                 </table>
