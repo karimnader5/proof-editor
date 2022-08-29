@@ -20,7 +20,7 @@ const parse = (line, index) => {
     } else if (line[0] === '`') {
         return createStructure(createSubproof(line, index), line, index);
     } else {
-        return <p>{line}</p>;
+        return <p key={index}>{line}</p>;
     }
 };
 

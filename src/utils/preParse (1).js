@@ -5,9 +5,10 @@ const preParse = (array) => {
             preParsed.push(array[i]);
             i++;
         } else {
-            let start = array.indexOf('```\n');
+            let start = array.indexOf('```\n', i);
+            console.log(start);
             let end = array.indexOf('```\n', start + 1);
-            if (start > 0 && end > 0) {
+            if (start >= 0 && end > 0) {
                 let multiProof = array.slice(start + 1, end);
                 preParsed.push([...multiProof]);
                 i = end + 1;
@@ -16,6 +17,8 @@ const preParse = (array) => {
             }
         }
     }
+    console.log(array);
+    console.log(preParsed);
     return preParsed;
 };
 

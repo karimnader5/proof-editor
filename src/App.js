@@ -13,9 +13,17 @@ export default function App() {
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
     });
-    const [input, setInput] = useState('');
+    const [input, setInput] = useState(localStorage.getItem('input') ? localStorage.getItem('input') : "");
     const [showInstructions, setShowInstructions] = useState(false);
-    const [darkMode, setDarkMode] = useState(false);
+    const [darkMode, setDarkMode] = useState(localStorage.getItem('darkmode') ? (localStorage.getItem('darkmode') === "true" ? true : false) : false);
+
+    React.useEffect(() => {
+        localStorage.setItem('input', input);
+      }, [input]);
+
+      React.useEffect(() => {
+        localStorage.setItem('darkmode', JSON.stringify(darkMode));
+      }, [darkMode]);
 
     function handleChange(event) {
         setInput(event.target.value);
